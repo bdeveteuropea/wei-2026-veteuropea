@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEI 2026 — Salou | BDE VetEuropea</title>
+<meta name="description" content="WEI 2026 du BDE VetEuropea : 3 jours à Salou, du 25 au 27 septembre 2026. Bus, hébergement, boîtes de nuit et boat party inclus. Réserve ta place !">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#FF3D68',
+          primarydark: '#E11D48',
+          secondary: '#FFB627',
+          accent: '#22D3C7',
+          purple: '#7C3AED',
+          night: '#120B29',
+          night2: '#1C1240',
+          cream: '#FFF8F0',
+          ink: '#1A1025',
+        },
+        fontFamily: {
+          display: ['Anton', 'Poppins', 'sans-serif'],
+          body: ['Poppins', 'system-ui', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Favicon (simple emoji-based) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌴</text></svg>">
+</head>
+<body class="font-body bg-cream text-ink antialiased">
+
+<div id="scroll-progress"></div>
+
+<!-- ============================================================ -->
+<!-- NAV -->
+<!-- ============================================================ -->
+<header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-5 sm:px-8 py-4">
+    <a href="#hero" class="flex items-center gap-2 text-white font-display text-xl tracking-wide">
+      <span aria-hidden="true">🌴</span>
+      WEI<span class="text-secondary">26</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/85">
+      <a href="#programme" class="nav-link hover:text-white">Programme</a>
+      <a href="#inclus" class="nav-link hover:text-white">Inclus</a>
+      <a href="#galerie" class="nav-link hover:text-white">Galerie</a>
+      <a href="#inscription" class="nav-link hover:text-white">Tarifs</a>
+      <a href="#faq" class="nav-link hover:text-white">FAQ</a>
+    </div>
+
+    <div class="hidden md:block">
+      <a href="#inscription" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full cursor-pointer">
+        Je réserve ma place
+      </a>
+    </div>
+
+    <button id="menu-btn" class="md:hidden text-white p-2 -mr-2 cursor-pointer" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg id="menu-icon-open" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="menu-icon-close" class="w-7 h-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-night2/95 backdrop-blur border-t border-white/10 px-5 py-4 flex flex-col gap-4 text-white/90">
+    <a href="#programme" class="nav-link py-1">Programme</a>
+    <a href="#inclus" class="nav-link py-1">Inclus</a>
+    <a href="#galerie" class="nav-link py-1">Galerie</a>
+    <a href="#inscription" class="nav-link py-1">Tarifs</a>
+    <a href="#faq" class="nav-link py-1">FAQ</a>
+    <a href="#inscription" class="btn-primary text-white text-sm font-semibold px-5 py-3 rounded-full text-center cursor-pointer mt-1">Je réserve ma place</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- HERO -->
+<!-- ============================================================ -->
+<section id="hero" class="hero-bg min-h-[100dvh] flex flex-col relative">
+  <div class="blob w-[420px] h-[420px] bg-secondary top-[-100px] left-[-120px]"></div>
+  <div class="blob w-[380px] h-[380px] bg-accent top-[10%] right-[-140px]" style="animation-delay: -4s;"></div>
+  <div class="blob w-[460px] h-[460px] bg-primary bottom-[-160px] left-[20%]" style="animation-delay: -8s;"></div>
+
+  <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pt-28 pb-16">
+    <p class="reveal is-visible inline-flex items-center gap-2 text-secondary font-semibold tracking-widest text-xs sm:text-sm uppercase bg-white/10 border border-white/15 rounded-full px-4 py-1.5 mb-6">
+      <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+      BDE VetEuropea présente
+    </p>
+
+    <h1 class="reveal is-visible font-display text-white leading-[0.95] text-[15vw] sm:text-7xl md:text-8xl lg:text-[8.5rem]">
+      WEI <span class="text-gradient">2026</span>
+    </h1>
+
+    <p class="reveal is-visible font-display text-white/95 text-3xl sm:text-4xl md:text-5xl mt-2 tracking-wide">
+      DESTINATION <span class="text-accent">SALOU</span> 🇪🇸
+    </p>
+
+    <p class="reveal is-visible text-white/70 text-base sm:text-lg mt-5 max-w-xl">
+      3 jours, 2 nuits de clubbing, 1 boat party sur la Costa Brava.
+      Le week-end le plus attendu de l'année t'attend.
+    </p>
+
+    <div class="reveal is-visible flex items-center gap-3 text-white/90 text-sm sm:text-base mt-6 font-medium">
+      <svg class="w-5 h-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      Du vendredi 25 au dimanche 27 septembre 2026
+    </div>
+
+    <!-- Countdown -->
+    <div class="reveal is-visible grid grid-cols-4 gap-2 sm:gap-4 mt-10 w-full max-w-md">
+      <div class="countdown-box rounded-2xl py-3 sm:py-4">
+        <div id="cd-days" class="font-display text-2xl sm:text-4xl text-white">00</div>
+        <div class="text-[10px] sm:text-xs uppercase tracking-wider text-white/60 mt-1">jours</div>
+      </div>
+      <div class="countdown-box rounded-2xl py-3 sm:py-4">
+        <div id="cd-hours" class="font-display text-2xl sm:text-4xl text-white">00</div>
+        <div class="text-[10px] sm:text-xs uppercase tracking-wider text-white/60 mt-1">heures</div>
+      </div>
+      <div class="countdown-box rounded-2xl py-3 sm:py-4">
+        <div id="cd-mins" class="font-display text-2xl sm:text-4xl text-white">00</div>
+        <div class="text-[10px] sm:text-xs uppercase tracking-wider text-white/60 mt-1">min</div>
+      </div>
+      <div class="countdown-box rounded-2xl py-3 sm:py-4">
+        <div id="cd-secs" class="font-display text-2xl sm:text-4xl text-white">00</div>
+        <div class="text-[10px] sm:text-xs uppercase tracking-wider text-white/60 mt-1">sec</div>
+      </div>
+    </div>
+
+    <div class="reveal is-visible flex flex-col sm:flex-row items-center gap-4 mt-10">
+      <a href="#inscription" class="btn-primary text-white font-semibold px-8 py-4 rounded-full cursor-pointer shadow-glow">
+        🔥 Je réserve ma place
+      </a>
+      <a href="#programme" class="btn-ghost text-white/90 font-medium px-8 py-4 rounded-full border border-white/25 hover:bg-white/10 cursor-pointer">
+        Voir le programme
+      </a>
+    </div>
+  </div>
+
+  <!-- Marquee -->
+  <div class="relative z-10 border-t border-white/10 bg-black/20 py-3 overflow-hidden">
+    <div class="marquee-track">
+      <span class="marquee-content flex items-center gap-8 text-white/70 font-display text-lg sm:text-xl tracking-wide pr-8 whitespace-nowrap"></span>
+      <span class="marquee-content-2 flex items-center gap-8 text-white/70 font-display text-lg sm:text-xl tracking-wide pr-8 whitespace-nowrap"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- POURQUOI VENIR -->
+<!-- ============================================================ -->
+<section id="pourquoi" class="bg-cream py-20 sm:py-28 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <span class="text-primary font-semibold text-sm uppercase tracking-widest">Pourquoi tu dois venir</span>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 leading-tight">Un week-end que tu ne vivras <span class="text-gradient">qu'une fois</span></h2>
+      <p class="text-ink/60 mt-4">Tout est pensé pour que tu n'aies qu'une chose à faire : profiter à fond avec toute la promo.</p>
+    </div>
+
+    <div class="reveal-stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="lift bg-white rounded-3xl p-7 border border-black/5 shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h8m-8 4h8m-8 4h4M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <h3 class="font-display text-xl mb-2">Bus direct Madrid ⇄ Salou</h3>
+        <p class="text-sm text-ink/60">Départ jeudi soir en bus, retour dimanche soir. Zéro logistique, tu montes et tu profites.</p>
+      </div>
+
+      <div class="lift bg-white rounded-3xl p-7 border border-black/5 shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-secondary/15 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <h3 class="font-display text-xl mb-2">Hébergement inclus</h3>
+        <p class="text-sm text-ink/60">Logement, taxes de séjour et draps fournis. Tu poses juste ta valise.</p>
+      </div>
+
+      <div class="lift bg-white rounded-3xl p-7 border border-black/5 shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-purple/10 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/></svg>
+        </div>
+        <h3 class="font-display text-xl mb-2">2 soirées en boîte</h3>
+        <p class="text-sm text-ink/60">Entrée + 1 conso offerte chaque soir, vendredi et samedi. Dancefloor garanti.</p>
+      </div>
+
+      <div class="lift bg-white rounded-3xl p-7 border border-black/5 shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-accent/15 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h10a4 4 0 004-4M3 15l3-9h12l3 9M3 15h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+        </div>
+        <h3 class="font-display text-xl mb-2">Boat Party en catamaran</h3>
+        <p class="text-sm text-ink/60">2h30 au large de la Costa Brava, DJ à bord et 5 consos offertes. LE moment fort du séjour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PROGRAMME -->
+<!-- ============================================================ -->
+<section id="programme" class="bg-night py-20 sm:py-28 px-5 relative overflow-hidden">
+  <div class="blob w-[420px] h-[420px] bg-purple/60 top-[-140px] right-[-140px]"></div>
+
+  <div class="max-w-4xl mx-auto relative z-10">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <span class="text-secondary font-semibold text-sm uppercase tracking-widest">Le programme</span>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 text-white leading-tight">Trois jours, <span class="text-gradient">zéro temps mort</span></h2>
+    </div>
+
+    <div class="reveal-stagger relative pl-10 sm:pl-14">
+      <div class="timeline-line absolute left-3 sm:left-5 top-2 bottom-2 w-[3px] rounded-full"></div>
+
+      <!-- Item -->
+      <div class="relative mb-12">
+        <div class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 rounded-full bg-secondary border-4 border-night flex items-center justify-center"></div>
+        <span class="inline-block text-secondary font-display text-sm tracking-widest mb-1">JEUDI 24/09 · 00H00</span>
+        <h3 class="font-display text-2xl text-white mb-1">Départ en bus depuis Madrid 🚌</h3>
+        <p class="text-white/60 text-sm">Rendez-vous à Madrid en soirée pour un départ à minuit pile. Ambiance de folie garantie dès le trajet.</p>
+      </div>
+
+      <div class="relative mb-12">
+        <div class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 rounded-full bg-primary border-4 border-night"></div>
+        <span class="inline-block text-secondary font-display text-sm tracking-widest mb-1">VENDREDI 25/09 · MATIN</span>
+        <h3 class="font-display text-2xl text-white mb-1">Arrivée à Salou & installation</h3>
+        <p class="text-white/60 text-sm">Check-in à la Résidence Pierre &amp; Vacances, petit temps libre pour prendre ses marques et profiter du soleil.</p>
+      </div>
+
+      <div class="relative mb-12">
+        <div class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 rounded-full bg-primary border-4 border-night"></div>
+        <span class="inline-block text-secondary font-display text-sm tracking-widest mb-1">VENDREDI 25/09 · SOIR</span>
+        <h3 class="font-display text-2xl text-white mb-1">1ère soirée en boîte 🎉</h3>
+        <p class="text-white/60 text-sm">Entrée + 1 conso offerte. On lance le week-end comme il se doit.</p>
+      </div>
+
+      <div class="relative mb-12">
+        <div class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 rounded-full bg-accent border-4 border-night"></div>
+        <span class="inline-block text-secondary font-display text-sm tracking-widest mb-1">SAMEDI 26/09 · JOURNÉE</span>
+        <h3 class="font-display text-2xl text-white mb-1">Boat Party en catamaran ⛵</h3>
+        <p class="text-white/60 text-sm">2h30 en mer au large de la Costa Brava, DJ à bord, baignade dans les criques et 5 consos offertes.</p>
+      </div>
+
+      <div class="relative mb-12">
+        <div class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 rounded-full bg-primary border-4 border-night"></div>
+        <span class="inline-block text-secondary font-display text-sm tracking-widest mb-1">SAMEDI 26/09 · SOIR</span>
+        <h3 class="font-display text-2xl text-white mb-1">2ème soirée en boîte 🎉</h3>
+        <p class="text-white/60 text-sm">Entrée + 1 conso offerte, on remet ça pour une deuxième nuit mémorable.</p>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 rounded-full bg-secondary border-4 border-night"></div>
+        <span class="inline-block text-secondary font-display text-sm tracking-widest mb-1">DIMANCHE 27/09 · 20H00</span>
+        <h3 class="font-display text-2xl text-white mb-1">Temps libre puis retour vers Madrid</h3>
+        <p class="text-white/60 text-sm">Derniers moments à Salou (plage, détente) avant d'embarquer dans le bus retour à 20h.</p>
+      </div>
+    </div>
+
+    <p class="reveal text-center text-white/40 text-xs mt-14">
+      * Un planning détaillé (rooming, horaires précis) te sera communiqué à J-5 en fonction de l'effectif final.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CE QUI EST INCLUS -->
+<!-- ============================================================ -->
+<section id="inclus" class="bg-cream py-20 sm:py-28 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <span class="text-primary font-semibold text-sm uppercase tracking-widest">Transparence totale</span>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 leading-tight">Ce qui est <span class="text-gradient">inclus</span></h2>
+      <p class="text-ink/60 mt-4">Un seul virement, aucune mauvaise surprise sur place.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10">
+      <!-- Inclus -->
+      <div class="reveal-stagger bg-white rounded-3xl border border-black/5 shadow-sm p-8">
+        <h3 class="font-display text-2xl mb-6 flex items-center gap-2">
+          <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center text-lg">✓</span>
+          Inclus dans ton pack
+        </h3>
+        <ul class="space-y-4 text-sm">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span><strong>Transport en bus</strong> — Madrid ⇄ Salou, aller jeudi minuit / retour dimanche 20h</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span><strong>Hébergement</strong> à la Résidence Pierre &amp; Vacances, avec fourniture de draps</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span><strong>Taxes de séjour</strong> incluses, aucun frais à régler sur place</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span><strong>Frais administratifs</strong> du dossier, tout compris</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span><strong>Entrées en boîte</strong> chaque soir (vendredi + samedi) avec 1 consommation offerte</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span><strong>Cruise Party en catamaran</strong> — 2h30 en mer, DJ à bord, 5 consos offertes</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Non inclus + options -->
+      <div class="reveal-stagger flex flex-col gap-6">
+        <div class="bg-white rounded-3xl border border-black/5 shadow-sm p-8">
+          <h3 class="font-display text-2xl mb-6 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-ink/10 text-ink/60 flex items-center justify-center text-lg">i</span>
+            Non inclus
+          </h3>
+          <ul class="space-y-3 text-sm text-ink/70">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-ink/40 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span><strong>Les repas</strong> ne sont pas compris — prévois ton budget nourriture sur place</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-purple/10 to-primary/10 rounded-3xl border border-purple/10 p-8">
+          <h3 class="font-display text-xl mb-2">Assurances en option</h3>
+          <p class="text-sm text-ink/60 mb-5">Souscriptibles jusqu'à 40 jours avant le départ, sur simple demande.</p>
+          <div class="grid grid-cols-2 gap-3 text-sm">
+            <div class="bg-white/70 rounded-xl px-4 py-3">
+              <div class="font-semibold">Annulation</div>
+              <div class="text-ink/50">10 € / personne</div>
+            </div>
+            <div class="bg-white/70 rounded-xl px-4 py-3">
+              <div class="font-semibold">Rapatriement + bagages</div>
+              <div class="text-ink/50">10 € / personne</div>
+            </div>
+            <div class="bg-white/70 rounded-xl px-4 py-3">
+              <div class="font-semibold">Tout inclus</div>
+              <div class="text-ink/50">19 € / personne</div>
+            </div>
+            <div class="bg-white/70 rounded-xl px-4 py-3">
+              <div class="font-semibold">VIP</div>
+              <div class="text-ink/50">29 € / personne</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- GALERIE -->
+<!-- ============================================================ -->
+<section id="galerie" class="bg-night py-20 sm:py-28 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <span class="text-secondary font-semibold text-sm uppercase tracking-widest">L'ambiance</span>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 text-white leading-tight">Un avant-goût du <span class="text-gradient">décor</span></h2>
+      <p class="text-white/50 mt-4">Résidence, boat party, soirées et Salou — l'ambiance qui t'attend fin septembre.</p>
+    </div>
+
+    <div class="reveal-stagger grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="gallery-tile rounded-3xl h-64 lg:h-80 flex items-end p-5">
+        <img src="assets/img/residence-pool-1.jpeg" alt="Piscine de la résidence Pierre &amp; Vacances à Salou" loading="lazy" class="absolute inset-0 w-full h-full object-cover -z-10">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="tile-label">
+          <div class="text-white/70 text-xs uppercase tracking-widest mb-1">Hébergement</div>
+          <div class="text-white font-display text-xl">Résidence Pierre &amp; Vacances</div>
+        </div>
+      </div>
+      <div class="gallery-tile rounded-3xl h-64 lg:h-80 flex items-end p-5">
+        <img src="assets/img/residence-pool-2.jpg" alt="Piscine et jardin de la résidence à Salou" loading="lazy" class="absolute inset-0 w-full h-full object-cover -z-10">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="tile-label">
+          <div class="text-white/70 text-xs uppercase tracking-widest mb-1">Hébergement</div>
+          <div class="text-white font-display text-xl">Piscine &amp; jardin</div>
+        </div>
+      </div>
+      <div class="gallery-tile rounded-3xl h-64 lg:h-80 flex items-end p-5">
+        <img src="assets/img/boat-party-aerial.jpeg" alt="Vue aérienne de la boat party en catamaran" loading="lazy" class="absolute inset-0 w-full h-full object-cover -z-10">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="tile-label">
+          <div class="text-white/70 text-xs uppercase tracking-widest mb-1">Costa Brava · Samedi après-midi</div>
+          <div class="text-white font-display text-xl">Boat Party</div>
+        </div>
+      </div>
+      <div class="gallery-tile rounded-3xl h-64 lg:h-80 flex items-end p-5">
+        <img src="assets/img/boat-party-confetti.jpg" alt="Confettis et ambiance en délire sur le catamaran au coucher de soleil" loading="lazy" class="absolute inset-0 w-full h-full object-cover -z-10">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="tile-label">
+          <div class="text-white/70 text-xs uppercase tracking-widest mb-1">Costa Brava · Samedi après-midi</div>
+          <div class="text-white font-display text-xl">Ambiance à bord</div>
+        </div>
+      </div>
+      <div class="gallery-tile rounded-3xl h-64 lg:h-80 flex items-end p-5">
+        <img src="assets/img/club-flashback.jpg" alt="Ambiance en boîte de nuit, confettis et foule en délire" loading="lazy" class="absolute inset-0 w-full h-full object-cover -z-10">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="tile-label">
+          <div class="text-white/70 text-xs uppercase tracking-widest mb-1">Nightlife · Vendredi soir</div>
+          <div class="text-white font-display text-xl">1ère soirée</div>
+        </div>
+      </div>
+      <div class="gallery-tile rounded-3xl h-64 lg:h-80 flex items-end p-5">
+        <img src="assets/img/tropical-salou.jpg" alt="Façade illuminée d'une discothèque à Salou" loading="lazy" class="absolute inset-0 w-full h-full object-cover -z-10">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="tile-label">
+          <div class="text-white/70 text-xs uppercase tracking-widest mb-1">Nightlife · Samedi soir</div>
+          <div class="text-white font-display text-xl">2ème soirée</div>
+        </div>
+      </div>
+      <div class="gallery-tile rounded-3xl h-64 lg:h-80 flex items-end p-5">
+        <img src="assets/img/salou-beach.jpg" alt="Plage de Salou vue du bord de mer" loading="lazy" class="absolute inset-0 w-full h-full object-cover -z-10">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="tile-label">
+          <div class="text-white/70 text-xs uppercase tracking-widest mb-1">Destination</div>
+          <div class="text-white font-display text-xl">La plage</div>
+        </div>
+      </div>
+      <div class="gallery-tile rounded-3xl h-64 lg:h-80 flex items-end p-5">
+        <img src="assets/img/salou-sign.jpg" alt="Panneau Salou entouré de palmiers" loading="lazy" class="absolute inset-0 w-full h-full object-cover -z-10">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="tile-label">
+          <div class="text-white/70 text-xs uppercase tracking-widest mb-1">Destination</div>
+          <div class="text-white font-display text-xl">Salou</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TARIFS / INSCRIPTION -->
+<!-- ============================================================ -->
+<section id="inscription" class="bg-cream py-20 sm:py-28 px-5">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <span class="text-primary font-semibold text-sm uppercase tracking-widest">Places limitées</span>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 leading-tight">Réserve <span class="text-gradient">ta place</span></h2>
+      <p class="text-ink/60 mt-4">Capacité limitée à 100 participants — l'inscription se fait par virement bancaire.</p>
+    </div>
+
+    <div class="reveal grid lg:grid-cols-5 gap-8 items-start">
+      <!-- Price card -->
+      <div class="lg:col-span-2 bg-night rounded-3xl p-8 text-white relative overflow-hidden shadow-glow">
+        <div class="blob w-64 h-64 bg-purple/60 -top-20 -right-20"></div>
+        <div class="relative z-10">
+          <span class="inline-block bg-secondary/20 text-secondary text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5">Pack WEI complet</span>
+          <div class="flex items-end gap-3 mb-1">
+            <span class="font-display text-6xl">160€</span>
+            <span class="text-white/40 text-lg mb-1">au lieu de 170€</span>
+          </div>
+          <p class="text-white/50 text-sm mb-2">par personne — tarif préférentiel dès l'ouverture des inscriptions</p>
+          <p id="earlybird-countdown" class="text-secondary text-sm font-semibold mb-6"></p>
+
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-4 mb-6 space-y-2.5 text-sm text-white/70">
+            <p class="flex items-start gap-2"><span class="text-secondary shrink-0">●</span> <span><strong class="text-white">160 €</strong> pour tout le monde du <strong class="text-white">25 juillet</strong> au <strong class="text-white">1er août 2026</strong> (1ère semaine d'ouverture), puis <strong class="text-white">170 €</strong>.</span></p>
+            <p class="flex items-start gap-2"><span class="text-accent shrink-0">●</span> <span><strong class="text-white">V1 (1ère année)</strong> : tarif à <strong class="text-white">160 €</strong> prolongé jusqu'à la rentrée, le <strong class="text-white">16 septembre 2026</strong>, puis 170 €.</span></p>
+          </div>
+
+          <ul class="space-y-3 text-sm text-white/80 mb-8">
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> Bus Madrid ⇄ Salou</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> Hébergement + taxes + draps</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> 2 soirées en boîte + conso</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> Boat party en catamaran</li>
+          </ul>
+
+          <a href="mailto:bdeveteuropea@gmail.com?subject=Inscription%20WEI%202026" class="btn-primary w-full block text-center text-white font-semibold px-6 py-4 rounded-full cursor-pointer">
+            J'ai des questions
+          </a>
+        </div>
+      </div>
+
+      <!-- Payment steps -->
+      <div class="lg:col-span-3 bg-white rounded-3xl border border-black/5 shadow-sm p-8">
+        <h3 class="font-display text-2xl mb-6">Comment valider ton inscription</h3>
+
+        <ol class="space-y-6">
+          <li class="flex gap-4">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-primary text-white font-display text-sm flex items-center justify-center">1</span>
+            <div class="flex-1">
+              <p class="font-semibold mb-2">Effectue le virement bancaire</p>
+              <div class="bg-cream rounded-2xl p-4 text-sm space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="text-ink/50">Titulaire</span>
+                  <span class="font-medium">Margaux VAUCHEL</span>
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                  <span class="text-ink/50">IBAN</span>
+                  <div class="flex items-center gap-2">
+                    <span class="font-mono font-medium text-xs sm:text-sm">FR76 4061 8804 3300 0405 8673 403</span>
+                    <button data-copy="FR7640618804330004058673403" class="cursor-pointer text-primary hover:text-primarydark shrink-0" aria-label="Copier l'IBAN">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                  <span class="text-ink/50">BIC</span>
+                  <div class="flex items-center gap-2">
+                    <span class="font-mono font-medium">BOUSFRPPXXX</span>
+                    <button data-copy="BOUSFRPPXXX" class="cursor-pointer text-primary hover:text-primarydark shrink-0" aria-label="Copier le BIC">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-ink/50 mt-2">⚠️ Indique bien <strong>ton nom et prénom</strong> dans le libellé du virement pour qu'on identifie ton paiement.</p>
+            </div>
+          </li>
+
+          <li class="flex gap-4">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-primary text-white font-display text-sm flex items-center justify-center">2</span>
+            <div>
+              <p class="font-semibold mb-2">Envoie tes documents par mail</p>
+              <p class="text-sm text-ink/60 mb-2">Une fois le virement fait, envoie à <a href="mailto:bdeveteuropea@gmail.com" class="text-primary underline underline-offset-2">bdeveteuropea@gmail.com</a> :</p>
+              <ul class="text-sm text-ink/60 space-y-1.5 list-disc list-inside">
+                <li>Le justificatif de virement bancaire</li>
+                <li>La décharge de responsabilité signée</li>
+                <li>Une pièce d'identité valide (CNI ou passeport)</li>
+                <li>Ton certificat de scolarité 2026-2027 à l'UEM</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="flex gap-4">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-accent text-white font-display text-sm flex items-center justify-center">3</span>
+            <div>
+              <p class="font-semibold mb-1">Ta place est confirmée 🎉</p>
+              <p class="text-sm text-ink/60">L'inscription n'est validée qu'une fois le paiement reçu et les documents vérifiés par le bureau.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FAQ -->
+<!-- ============================================================ -->
+<section id="faq" class="bg-cream py-20 sm:py-28 px-5">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <span class="text-primary font-semibold text-sm uppercase tracking-widest">Des questions ?</span>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 leading-tight">FAQ</h2>
+    </div>
+
+    <div class="reveal-stagger space-y-3">
+      <div class="faq-item bg-white rounded-2xl border border-black/5 overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold cursor-pointer" aria-expanded="false">
+          Comment se passe le transport ?
+          <span class="faq-icon text-primary text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-answer px-6">
+          <p class="text-sm text-ink/60 pb-5">Départ en bus depuis Madrid le jeudi à minuit, arrivée le vendredi matin à Salou. Retour en bus depuis Salou le dimanche à 20h, direction Madrid.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl border border-black/5 overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold cursor-pointer" aria-expanded="false">
+          Les repas sont-ils inclus ?
+          <span class="faq-icon text-primary text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-answer px-6">
+          <p class="text-sm text-ink/60 pb-5">Non, les repas ne sont pas compris dans le pack. Salou regorge de restaurants et supermarchés pour tous les budgets.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl border border-black/5 overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold cursor-pointer" aria-expanded="false">
+          Quels documents dois-je fournir ?
+          <span class="faq-icon text-primary text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-answer px-6">
+          <p class="text-sm text-ink/60 pb-5">Après ton virement, envoie par mail le justificatif de virement, la décharge de responsabilité signée, une pièce d'identité valide et ton certificat de scolarité 2026-2027 à l'UEM.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl border border-black/5 overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold cursor-pointer" aria-expanded="false">
+          Y a-t-il des cautions à prévoir sur place ?
+          <span class="faq-icon text-primary text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-answer px-6">
+          <p class="text-sm text-ink/60 pb-5">Oui. Un chèque de caution individuel de 100 € est demandé à l'arrivée (ou dépôt en ligne via la plateforme partenaire). Les modalités précises te seront communiquées avant le départ.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl border border-black/5 overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold cursor-pointer" aria-expanded="false">
+          Puis-je annuler après mon inscription ?
+          <span class="faq-icon text-primary text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-answer px-6">
+          <p class="text-sm text-ink/60 pb-5">Les conditions d'annulation dépendent de la date de la demande. On te recommande de souscrire à l'assurance annulation (10 €) pour te couvrir en cas d'imprévu.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl border border-black/5 overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold cursor-pointer" aria-expanded="false">
+          Comment je sais que mon inscription est bien validée ?
+          <span class="faq-icon text-primary text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-answer px-6">
+          <p class="text-sm text-ink/60 pb-5">Le bureau vérifie ton virement et tes documents, puis te confirme ta place par mail. Aucune place n'est garantie tant que cette confirmation n'a pas été envoyée.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<footer id="contact" class="bg-night text-white/70 pt-16 pb-8 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid sm:grid-cols-3 gap-10 mb-12">
+      <div>
+        <div class="flex items-center gap-2 text-white font-display text-xl mb-4">
+          <span aria-hidden="true">🌴</span> WEI<span class="text-secondary">26</span>
+        </div>
+        <p class="text-sm">Le WEI 2026 est organisé par le BDE VetEuropea, association étudiante des vétérinaires de l'Universidad Europea de Madrid (UEM).</p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Navigation</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#programme" class="hover:text-white transition-colors">Programme</a></li>
+          <li><a href="#inclus" class="hover:text-white transition-colors">Ce qui est inclus</a></li>
+          <li><a href="#inscription" class="hover:text-white transition-colors">Tarifs & inscription</a></li>
+          <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="mailto:bdeveteuropea@gmail.com" class="hover:text-white transition-colors">bdeveteuropea@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
+      <p>© <span id="current-year">2026</span> BDE VetEuropea — Tous droits réservés</p>
+      <p>Fait avec 🧡 pour la meilleure promo</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<div id="mobile-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-night/95 backdrop-blur border-t border-white/10 px-5 py-3">
+  <a href="#inscription" class="btn-primary block text-center text-white font-semibold px-6 py-3.5 rounded-full cursor-pointer">
+    🔥 Je réserve ma place
+  </a>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="bg-ink text-white text-sm font-medium px-5 py-3 rounded-full shadow-lg"></div>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Build marquee content dynamically to keep HTML DRY
+  const marqueeItems = ['SALOU 🇪🇸', 'BOAT PARTY ⛵', 'CLUBBING 🎉', '25–27 SEPT 2026', 'WEI VETEUROPEA'];
+  const marqueeHTML = marqueeItems.map(i => `<span class="mx-6 flex items-center gap-6">${i}<span class="text-secondary">✦</span></span>`).join('');
+  document.querySelectorAll('.marquee-content, .marquee-content-2').forEach(el => el.innerHTML = marqueeHTML);
+</script>
+
+</body>
+</html>

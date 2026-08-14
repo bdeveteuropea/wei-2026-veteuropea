@@ -117,21 +117,29 @@
     <!-- Countdown -->
     <div class="reveal is-visible grid grid-cols-4 gap-2 sm:gap-4 mt-10 w-full max-w-md">
       <div class="countdown-box rounded-2xl py-3 sm:py-4">
-        <div id="cd-days" class="font-display text-2xl sm:text-4xl text-white">00</div>
+        <div id="wei-cd-days" class="font-display text-2xl sm:text-4xl text-white">00</div>
         <div class="text-[10px] sm:text-xs uppercase tracking-wider text-white/60 mt-1">jours</div>
       </div>
       <div class="countdown-box rounded-2xl py-3 sm:py-4">
-        <div id="cd-hours" class="font-display text-2xl sm:text-4xl text-white">00</div>
+        <div id="wei-cd-hours" class="font-display text-2xl sm:text-4xl text-white">00</div>
         <div class="text-[10px] sm:text-xs uppercase tracking-wider text-white/60 mt-1">heures</div>
       </div>
       <div class="countdown-box rounded-2xl py-3 sm:py-4">
-        <div id="cd-mins" class="font-display text-2xl sm:text-4xl text-white">00</div>
+        <div id="wei-cd-mins" class="font-display text-2xl sm:text-4xl text-white">00</div>
         <div class="text-[10px] sm:text-xs uppercase tracking-wider text-white/60 mt-1">min</div>
       </div>
       <div class="countdown-box rounded-2xl py-3 sm:py-4">
-        <div id="cd-secs" class="font-display text-2xl sm:text-4xl text-white">00</div>
+        <div id="wei-cd-secs" class="font-display text-2xl sm:text-4xl text-white">00</div>
         <div class="text-[10px] sm:text-xs uppercase tracking-wider text-white/60 mt-1">sec</div>
       </div>
+    </div>
+
+    <!-- Cibles invisibles conservées pour neutraliser l'ancien compteur de main.js. -->
+    <div class="hidden" aria-hidden="true">
+      <span id="cd-days"></span>
+      <span id="cd-hours"></span>
+      <span id="cd-mins"></span>
+      <span id="cd-secs"></span>
     </div>
 
     <div class="reveal is-visible flex flex-col sm:flex-row items-center gap-4 mt-10">
@@ -603,10 +611,10 @@
     const seconds = Math.floor((remaining % 60000) / 1000);
 
     const values = {
-      'cd-days': days,
-      'cd-hours': hours,
-      'cd-mins': minutes,
-      'cd-secs': seconds,
+      'wei-cd-days': days,
+      'wei-cd-hours': hours,
+      'wei-cd-mins': minutes,
+      'wei-cd-secs': seconds,
     };
 
     Object.entries(values).forEach(([id, value]) => {

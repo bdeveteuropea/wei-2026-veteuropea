@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>WEI 2026 — Lloret de Mar | BDE VetEuropea</title>
 <meta name="description" content="WEI 2026 du BDE VetEuropea : 3 jours à Lloret de Mar, du 25 au 27 septembre 2026. Bus, hôtel avec piscine, deux entrées en boîte et boat party avec boissons incluses.">
 
@@ -38,6 +38,44 @@
 </script>
 
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+  /* Empêche Safari iOS de révéler une zone vide à droite lors d'un geste
+     horizontal ou d'un dézoom. Le défilement vertical reste actif. */
+  html,
+  body {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden !important;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
+  }
+
+  html {
+    background: #FFF8F0;
+  }
+
+  body {
+    position: relative;
+  }
+
+  body > main,
+  body > footer,
+  main > section,
+  #contact {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: clip;
+  }
+
+  #contact {
+    align-self: stretch;
+  }
+</style>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌴</text></svg>">
 </head>
 <body class="font-body bg-cream text-ink antialiased">

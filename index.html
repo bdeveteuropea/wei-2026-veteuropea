@@ -75,8 +75,47 @@
   #contact {
     align-self: stretch;
   }
+
+  .language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+  }
+
+  .language-option {
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+    border-radius: 9999px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+  }
+
+  .language-option:hover {
+    color: #fff;
+  }
+
+  .language-option[aria-pressed="true"] {
+    color: #120B29;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  }
+
+  .language-option:active {
+    transform: scale(0.96);
+  }
 </style>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌴</text></svg>">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="0549c2ac-94ae-4c7c-9691-118b807f1636"></script>
 </head>
 <body class="font-body bg-cream text-ink antialiased">
 
@@ -98,16 +137,26 @@
       <a href="#faq" class="nav-link hover:text-white">FAQ</a>
     </div>
 
-    <div class="hidden md:block">
-      <a href="#inscription" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full cursor-pointer">
+    <div class="hidden md:flex items-center gap-3">
+      <div class="language-switcher" role="group" aria-label="Choisir la langue">
+        <button type="button" class="language-option" data-language="fr" aria-pressed="true" data-umami-event="Changement langue" data-umami-event-langue="fr">FR</button>
+        <button type="button" class="language-option" data-language="es" aria-pressed="false" data-umami-event="Changement langue" data-umami-event-langue="es">ES</button>
+      </div>
+      <a href="#inscription" data-umami-event="Clic CTA reservation" data-umami-event-emplacement="navigation ordinateur" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full cursor-pointer">
         Je réserve ma place
       </a>
     </div>
 
-    <button id="menu-btn" class="md:hidden text-white p-2 -mr-2 cursor-pointer" aria-label="Ouvrir le menu" aria-expanded="false">
-      <svg id="menu-icon-open" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg id="menu-icon-close" class="w-7 h-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-    </button>
+    <div class="flex md:hidden items-center gap-2">
+      <div class="language-switcher" role="group" aria-label="Choisir la langue">
+        <button type="button" class="language-option" data-language="fr" aria-pressed="true" data-umami-event="Changement langue" data-umami-event-langue="fr">FR</button>
+        <button type="button" class="language-option" data-language="es" aria-pressed="false" data-umami-event="Changement langue" data-umami-event-langue="es">ES</button>
+      </div>
+      <button id="menu-btn" class="text-white p-2 -mr-2 cursor-pointer" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menu-icon-close" class="w-7 h-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
   </nav>
 
   <div id="mobile-menu" class="hidden md:hidden bg-night2/95 backdrop-blur border-t border-white/10 px-5 py-4 flex flex-col gap-4 text-white/90">
@@ -116,7 +165,7 @@
     <a href="#galerie" class="nav-link py-1">Galerie</a>
     <a href="#inscription" class="nav-link py-1">Tarifs</a>
     <a href="#faq" class="nav-link py-1">FAQ</a>
-    <a href="#inscription" class="btn-primary text-white text-sm font-semibold px-5 py-3 rounded-full text-center cursor-pointer mt-1">Je réserve ma place</a>
+    <a href="#inscription" data-umami-event="Clic CTA reservation" data-umami-event-emplacement="menu mobile" class="btn-primary text-white text-sm font-semibold px-5 py-3 rounded-full text-center cursor-pointer mt-1">Je réserve ma place</a>
   </div>
 </header>
 
@@ -181,7 +230,7 @@
     </div>
 
     <div class="reveal is-visible flex flex-col sm:flex-row items-center gap-4 mt-10">
-      <a href="#inscription" class="btn-primary text-white font-semibold px-8 py-4 rounded-full cursor-pointer shadow-glow">🔥 Je réserve ma place</a>
+      <a href="#inscription" data-umami-event="Clic CTA reservation" data-umami-event-emplacement="hero" class="btn-primary text-white font-semibold px-8 py-4 rounded-full cursor-pointer shadow-glow">🔥 Je réserve ma place</a>
       <a href="#programme" class="btn-ghost text-white/90 font-medium px-8 py-4 rounded-full border border-white/25 hover:bg-white/10 cursor-pointer">Voir le programme</a>
     </div>
   </div>
@@ -540,8 +589,8 @@
             <strong class="text-white">Caution individuelle de 100 €</strong> par étudiant, par chèque à l'arrivée ou via Swikly avant le séjour.
           </div>
 
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSell65B9TilA3gAc3_Sljxktbj3L6Xd06P1ckZjoBjmp6Sdng/viewform" target="_blank" rel="noopener noreferrer" class="btn-primary w-full block text-center text-white font-semibold px-6 py-4 rounded-full cursor-pointer">Remplir le formulaire d'inscription</a>
-          <a href="mailto:bdeveteuropea@gmail.com?subject=Question%20WEI%202026" class="block text-center text-white/70 hover:text-white text-sm font-medium mt-4 transition-colors">J'ai une question</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSell65B9TilA3gAc3_Sljxktbj3L6Xd06P1ckZjoBjmp6Sdng/viewform" target="_blank" rel="noopener noreferrer" data-umami-event="Ouverture formulaire inscription" data-umami-event-emplacement="carte tarif" class="btn-primary w-full block text-center text-white font-semibold px-6 py-4 rounded-full cursor-pointer">Remplir le formulaire d'inscription</a>
+          <a href="mailto:bdeveteuropea@gmail.com?subject=Question%20WEI%202026" data-umami-event="Clic contact email" data-umami-event-emplacement="carte tarif" class="block text-center text-white/70 hover:text-white text-sm font-medium mt-4 transition-colors">J'ai une question</a>
         </div>
       </div>
 
@@ -554,7 +603,7 @@
             <div class="flex-1">
               <p class="font-semibold mb-2">Remplis le formulaire d'inscription</p>
               <p class="text-sm text-ink/60 mb-3">Commence par renseigner tes informations dans le formulaire officiel du BDE.</p>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSell65B9TilA3gAc3_Sljxktbj3L6Xd06P1ckZjoBjmp6Sdng/viewform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary hover:bg-primarydark text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors cursor-pointer">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSell65B9TilA3gAc3_Sljxktbj3L6Xd06P1ckZjoBjmp6Sdng/viewform" target="_blank" rel="noopener noreferrer" data-umami-event="Ouverture formulaire inscription" data-umami-event-emplacement="etape 1" class="inline-flex items-center gap-2 bg-primary hover:bg-primarydark text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors cursor-pointer">
                 Ouvrir le formulaire
                 <span aria-hidden="true">↗</span>
               </a>
@@ -597,14 +646,14 @@
             <span class="shrink-0 w-8 h-8 rounded-full bg-primary text-white font-display text-sm flex items-center justify-center">3</span>
             <div class="flex-1">
               <p class="font-semibold mb-2">Envoie tes documents par mail</p>
-              <p class="text-sm text-ink/60 mb-2">Une fois le virement fait, envoie à <a href="mailto:bdeveteuropea@gmail.com" class="text-primary underline underline-offset-2">bdeveteuropea@gmail.com</a> :</p>
+              <p class="text-sm text-ink/60 mb-2">Une fois le virement fait, envoie à <a href="mailto:bdeveteuropea@gmail.com" data-umami-event="Clic contact email" data-umami-event-emplacement="etape documents" class="text-primary underline underline-offset-2">bdeveteuropea@gmail.com</a> :</p>
               <ul class="text-sm text-ink/60 space-y-1.5 list-disc list-inside">
                 <li>Le justificatif de virement bancaire</li>
                 <li>La décharge de responsabilité signée</li>
                 <li>Une pièce d'identité valide (CNI ou passeport)</li>
                 <li>Ton certificat de scolarité 2026-2027 à l'UEM</li>
               </ul>
-              <a href="declaration-responsabilite-wei-2026.pdf" target="_blank" rel="noopener noreferrer" download class="inline-flex items-center gap-2 mt-4 bg-primary/10 hover:bg-primary/15 border border-primary/20 text-primary text-sm font-semibold px-5 py-3 rounded-full transition-colors cursor-pointer">
+              <a href="declaration-responsabilite-wei-2026.pdf" target="_blank" rel="noopener noreferrer" download data-umami-event="Telechargement decharge PDF" class="inline-flex items-center gap-2 mt-4 bg-primary/10 hover:bg-primary/15 border border-primary/20 text-primary text-sm font-semibold px-5 py-3 rounded-full transition-colors cursor-pointer">
                 <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
                 Télécharger la décharge à signer (PDF)
               </a>
@@ -733,7 +782,7 @@
       <div>
         <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="mailto:bdeveteuropea@gmail.com" class="hover:text-white transition-colors">bdeveteuropea@gmail.com</a></li>
+          <li><a href="mailto:bdeveteuropea@gmail.com" data-umami-event="Clic contact email" data-umami-event-emplacement="pied de page" class="hover:text-white transition-colors">bdeveteuropea@gmail.com</a></li>
         </ul>
       </div>
     </div>
@@ -746,7 +795,7 @@
 </footer>
 
 <div id="mobile-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-night/95 backdrop-blur border-t border-white/10 px-5 py-3">
-  <a href="#inscription" class="btn-primary block text-center text-white font-semibold px-6 py-3.5 rounded-full cursor-pointer">🔥 Je réserve ma place</a>
+  <a href="#inscription" data-umami-event="Clic CTA reservation" data-umami-event-emplacement="barre mobile" class="btn-primary block text-center text-white font-semibold px-6 py-3.5 rounded-full cursor-pointer">🔥 Je réserve ma place</a>
 </div>
 
 <div id="toast" class="bg-ink text-white text-sm font-medium px-5 py-3 rounded-full shadow-lg"></div>
@@ -783,6 +832,275 @@
 
   updateWeiCountdown();
   setInterval(updateWeiCountdown, 1000);
+
+  // Version bilingue FR / ES sans changement d'URL principale.
+  (() => {
+    const es = {
+      "Programme": "Programa",
+      "Inclus": "Incluido",
+      "Galerie": "Galería",
+      "Tarifs": "Tarifas",
+      "Je réserve ma place": "Reservo mi plaza",
+      "BDE VetEuropea présente": "BDE VetEuropea presenta",
+      "3 jours, 2 nuits de clubbing et 1 boat party sur la Costa Brava. Le week-end le plus attendu de l'année t'attend.": "3 días, 2 noches de fiesta y 1 boat party en la Costa Brava. Te espera el fin de semana más esperado del año.",
+      "Du vendredi 25 au dimanche 27 septembre 2026": "Del viernes 25 al domingo 27 de septiembre de 2026",
+      "jours": "días",
+      "heures": "horas",
+      "sec": "seg",
+      "🔥 Je réserve ma place": "🔥 Reservo mi plaza",
+      "Voir le programme": "Ver el programa",
+      "Pourquoi tu dois venir": "Por qué tienes que venir",
+      "Un week-end que tu ne vivras": "Un fin de semana que solo vivirás",
+      "qu'une fois": "una vez",
+      "Tout est pensé pour que tu n'aies qu'une chose à faire : profiter à fond avec toute la promo.": "Todo está pensado para que solo tengas que hacer una cosa: disfrutar al máximo con toda tu promoción.",
+      "Bus direct Villaviciosa de Odón ⇄ Lloret": "Bus directo Villaviciosa de Odón ⇄ Lloret",
+      "Bus Villaviciosa de Odón ⇄ Lloret": "Autobús Villaviciosa de Odón ⇄ Lloret",
+      "Départ de Villaviciosa de Odón le vendredi 25 septembre à 4h. Retour le dimanche avec un départ de Lloret à 17h.": "Salida de Villaviciosa de Odón el viernes 25 de septiembre a las 4:00. Regreso el domingo con salida de Lloret a las 17:00.",
+      "Boléro Hôtel avec piscine": "Hotel Boléro con piscina",
+      "Deux nuits à l'hôtel avec piscine et draps fournis. Tu poses juste ta valise.": "Dos noches en un hotel con piscina y sábanas incluidas. Solo tienes que dejar la maleta.",
+      "2 entrées en boîte": "2 entradas a discoteca",
+      "Deux soirées pour profiter de la nightlife de Lloret, le vendredi et le samedi.": "Dos noches para disfrutar de la vida nocturna de Lloret, el viernes y el sábado.",
+      "Une boat party sur la Costa Brava avec les boissons incluses dans ton pack.": "Una boat party en la Costa Brava con las bebidas incluidas en tu pack.",
+      "Le programme": "El programa",
+      "Trois jours,": "Tres días,",
+      "zéro temps mort": "sin un minuto que perder",
+      "VENDREDI 25/09 · 4H00": "VIERNES 25/09 · 4:00",
+      "Départ en bus depuis Villaviciosa de Odón 🚌": "Salida en autobús desde Villaviciosa de Odón 🚌",
+      "Rendez-vous à Villaviciosa de Odón pour un départ à 4h, direction Lloret de Mar.": "Punto de encuentro en Villaviciosa de Odón para salir a las 4:00 rumbo a Lloret de Mar.",
+      "VENDREDI 25/09 · MATIN": "VIERNES 25/09 · MAÑANA",
+      "Arrivée à Lloret & installation": "Llegada a Lloret e instalación",
+      "Installation au Boléro Hôtel, puis temps libre pour prendre ses marques et profiter de la piscine.": "Instalación en el Hotel Boléro y tiempo libre para acomodarse y disfrutar de la piscina.",
+      "VENDREDI 25/09 · SOIR": "VIERNES 25/09 · NOCHE",
+      "1ère soirée en boîte 🎉": "Primera noche de discoteca 🎉",
+      "Première entrée en boîte incluse pour lancer le week-end comme il se doit.": "Primera entrada a discoteca incluida para empezar el fin de semana como se merece.",
+      "SAMEDI 26/09 · JOURNÉE": "SÁBADO 26/09 · DÍA",
+      "Boat party sur la Costa Brava avec boissons incluses.": "Boat party en la Costa Brava con bebidas incluidas.",
+      "SAMEDI 26/09 · SOIR": "SÁBADO 26/09 · NOCHE",
+      "2ème soirée en boîte 🎉": "Segunda noche de discoteca 🎉",
+      "Deuxième entrée en boîte incluse pour une dernière soirée mémorable.": "Segunda entrada a discoteca incluida para una última noche inolvidable.",
+      "DIMANCHE 27/09 · 17H00": "DOMINGO 27/09 · 17:00",
+      "Temps libre puis retour vers Villaviciosa de Odón": "Tiempo libre y regreso a Villaviciosa de Odón",
+      "Derniers moments à Lloret avant le départ du bus retour à 17h.": "Últimos momentos en Lloret antes de la salida del autobús de regreso a las 17:00.",
+      "* Un planning détaillé (rooming et horaires précis des activités) te sera communiqué avant le départ.": "* Antes de la salida se te comunicará un programa detallado con la distribución de habitaciones y los horarios exactos de las actividades.",
+      "Transparence totale": "Transparencia total",
+      "Ce qui est": "Lo que está",
+      "inclus": "incluido",
+      "Tout ce qu'il faut savoir avant de réserver ta place.": "Todo lo que necesitas saber antes de reservar tu plaza.",
+      "Inclus dans ton pack": "Incluido en tu pack",
+      "Transport en bus": "Transporte en autobús",
+      "— Villaviciosa de Odón ⇄ Lloret de Mar, aller vendredi à 4h / retour dimanche à 17h": "— Villaviciosa de Odón ⇄ Lloret de Mar, ida el viernes a las 4:00 / vuelta el domingo a las 17:00",
+      "Hébergement au Boléro Hôtel": "Alojamiento en el Hotel Boléro",
+      "avec piscine et draps fournis": "con piscina y sábanas incluidas",
+      "Deux entrées en boîte": "Dos entradas a discoteca",
+      ", le vendredi et le samedi soir": ", el viernes y el sábado por la noche",
+      "avec boissons incluses": "con bebidas incluidas",
+      "Non inclus": "No incluido",
+      "Les assurances": "Los seguros",
+      "ne sont pas comprises dans le prix — plusieurs formules optionnelles sont proposées ci-dessous": "no están incluidos en el precio; a continuación se ofrecen varias opciones",
+      "La restauration": "Las comidas",
+      "n'est pas comprise — prévois ton budget repas sur place": "no están incluidas; debes prever un presupuesto para comer allí",
+      "Places non remboursables": "Plazas no reembolsables",
+      "Une fois ta place achetée, le BDE ne pourra pas te rembourser. Si tu ne peux plus venir, tu peux toutefois revendre ta place à un autre étudiant.": "Una vez comprada la plaza, el BDE no podrá reembolsártela. Si finalmente no puedes asistir, podrás revenderla a otro estudiante.",
+      "Obligatoire pour chaque étudiant": "Obligatorio para cada estudiante",
+      "Caution individuelle de 100 €": "Fianza individual de 100 €",
+      "À fournir par chèque à l'arrivée du groupe ou à déposer en ligne via Swikly avant le séjour. Les modalités exactes seront communiquées en amont.": "Deberá entregarse mediante cheque a la llegada del grupo o depositarse en línea a través de Swikly antes del viaje. Los detalles se comunicarán con antelación.",
+      "À lire avant de réserver": "Léelo antes de reservar",
+      "Cautions &": "Fianzas y",
+      "assurances": "seguros",
+      "La caution individuelle est obligatoire. Les assurances restent facultatives et ne sont pas comprises dans le prix du WEI.": "La fianza individual es obligatoria. Los seguros son opcionales y no están incluidos en el precio del WEI.",
+      "Obligatoire": "Obligatorio",
+      "par étudiant": "por estudiante",
+      "Caution individuelle à fournir": "Fianza individual obligatoria",
+      "Chaque étudiant doit obligatoirement fournir une caution individuelle de 100 €. Elle pourra être remise par chèque à l'arrivée du groupe ou déposée en ligne sur la plateforme partenaire Swikly avant le séjour.": "Cada estudiante deberá aportar obligatoriamente una fianza individual de 100 €. Podrá entregarse mediante cheque a la llegada del grupo o depositarse en línea en la plataforma asociada Swikly antes del viaje.",
+      "Modalités pratiques": "Información práctica",
+      "L'ordre du chèque et les consignes Swikly seront communiqués en amont.": "El beneficiario del cheque y las instrucciones de Swikly se comunicarán con antelación.",
+      "Un état des lieux sera effectué à l'arrivée et au départ du groupe.": "Se realizará una inspección a la llegada y a la salida del grupo.",
+      "Cautions gérées par le BDE": "Fianzas gestionadas por el BDE",
+      "Ces montants ne sont pas à fournir individuellement : une caution transport de 1 000 € par car, remise au conducteur au départ et restituée au retour en l'absence de dégâts, ainsi que trois cautions collectives de 500 €, 1 500 € et 3 000 €. Les ordres des chèques seront communiqués en amont. Le BDE doit également transmettre une attestation de responsabilité civile en cours de validité.": "Estos importes no deben aportarse individualmente: una fianza de transporte de 1.000 € por autobús, entregada al conductor a la salida y devuelta al regreso si no hay daños, además de tres fianzas colectivas de 500 €, 1.500 € y 3.000 €. Los beneficiarios de los cheques se comunicarán con antelación. El BDE también deberá presentar un certificado de responsabilidad civil vigente.",
+      "Assurances optionnelles": "Seguros opcionales",
+      "Le contrat n'inclut aucune assurance. Une formule peut être souscrite, sur demande auprès du BDE, jusqu'à 40 jours avant le départ.": "El contrato no incluye ningún seguro. Puede contratarse una modalidad, solicitándola al BDE, hasta 40 días antes de la salida.",
+      "Annulation": "Cancelación",
+      "par personne": "por persona",
+      "Rapatriement + bagages": "Repatriación + equipaje",
+      "couverture vol/perte · par personne": "cobertura por robo/pérdida · por persona",
+      "Tout inclus": "Todo incluido",
+      "Besoin du détail des garanties ?": "¿Necesitas los detalles de las coberturas?",
+      "Demande-le au BDE avant de choisir ta formule.": "Pídeselos al BDE antes de elegir tu modalidad.",
+      "Toute option confirmée est facturée et non remboursable, sauf annulation du séjour pour circonstances exceptionnelles et inévitables.": "Cualquier opción confirmada se factura y no es reembolsable, salvo cancelación del viaje por circunstancias excepcionales e inevitables.",
+      "L'ambiance": "El ambiente",
+      "Un avant-goût du": "Un adelanto del",
+      "week-end": "fin de semana",
+      "Boléro Hôtel, boat party et soirées — un aperçu fidèle de ce qui t'attend à Lloret.": "Hotel Boléro, boat party y fiestas: un adelanto fiel de lo que te espera en Lloret.",
+      "Hébergement · Lloret": "Alojamiento · Lloret",
+      "Boléro Hôtel": "Hotel Boléro",
+      "Deux nuits · Draps fournis": "Dos noches · Sábanas incluidas",
+      "Ton hébergement": "Tu alojamiento",
+      "Costa Brava · Samedi": "Costa Brava · Sábado",
+      "Nightlife · Lloret": "Vida nocturna · Lloret",
+      "2 soirées": "2 noches",
+      "Places limitées": "Plazas limitadas",
+      "Réserve": "Reserva",
+      "ta place": "tu plaza",
+      "L'inscription se fait par virement bancaire. Les tarifs dépendent de ta promotion et de la date de paiement.": "La inscripción se realiza mediante transferencia bancaria. Las tarifas dependen de tu curso y de la fecha de pago.",
+      "Pack WEI complet": "Pack WEI completo",
+      "tarif standard": "tarifa estándar",
+      "par personne — tarifs de lancement à 160 €, puis tarif tardif à 180 €": "por persona — tarifa de lanzamiento de 160 € y tarifa tardía de 180 €",
+      "V2, V3, V4 et V5 :": "V2, V3, V4 y V5:",
+      "du": "del",
+      "17 au 20 août 2026 inclus": "17 al 20 de agosto de 2026 inclusive",
+      ", puis": ", después",
+      "du 21 août au 17 septembre.": "del 21 de agosto al 17 de septiembre.",
+      "17 août au 17 septembre 2026 inclus": "17 de agosto al 17 de septiembre de 2026 inclusive",
+      "À partir du 18 septembre :": "A partir del 18 de septiembre:",
+      "pour tout le monde.": "para todos.",
+      "Boléro Hôtel + piscine + draps": "Hotel Boléro + piscina + sábanas",
+      "2 entrées en boîte": "2 entradas a discoteca",
+      "Boat party + boissons": "Boat party + bebidas",
+      "Attention :": "Atención:",
+      "aucune place achetée ne sera remboursée par le BDE. Elle pourra être revendue à un autre étudiant.": "el BDE no reembolsará ninguna plaza comprada. Podrá revenderse a otro estudiante.",
+      "À prévoir obligatoirement": "Obligatorio",
+      "par étudiant, par chèque à l'arrivée ou via Swikly avant le séjour.": "por estudiante, mediante cheque a la llegada o a través de Swikly antes del viaje.",
+      "Remplir le formulaire d'inscription": "Rellenar el formulario de inscripción",
+      "J'ai une question": "Tengo una pregunta",
+      "Comment valider ton inscription": "Cómo confirmar tu inscripción",
+      "Remplis le formulaire d'inscription": "Rellena el formulario de inscripción",
+      "Commence par renseigner tes informations dans le formulaire officiel du BDE.": "Empieza rellenando tus datos en el formulario oficial del BDE.",
+      "Ouvrir le formulaire": "Abrir el formulario",
+      "Effectue le virement bancaire": "Realiza la transferencia bancaria",
+      "Titulaire": "Titular",
+      "⚠️ Indique bien": "⚠️ Indica claramente",
+      "ton nom et prénom": "tu nombre y apellidos",
+      "dans le libellé du virement pour qu'on identifie ton paiement.": "en el concepto de la transferencia para que podamos identificar tu pago.",
+      "Envoie tes documents par mail": "Envía tus documentos por correo electrónico",
+      "Une fois le virement fait, envoie à": "Una vez realizada la transferencia, envía a",
+      "Le justificatif de virement bancaire": "El justificante de la transferencia bancaria",
+      "La décharge de responsabilité signée": "La declaración de responsabilidad firmada",
+      "Une pièce d'identité valide (CNI ou passeport)": "Un documento de identidad válido (DNI o pasaporte)",
+      "Ton certificat de scolarité 2026-2027 à l'UEM": "Tu certificado de matrícula 2026-2027 en la UEM",
+      "Télécharger la décharge à signer (PDF)": "Descargar la declaración para firmar (PDF)",
+      "Ta place est confirmée 🎉": "Tu plaza está confirmada 🎉",
+      "L'inscription n'est validée qu'une fois le paiement reçu et les documents vérifiés par le bureau.": "La inscripción solo quedará validada cuando se haya recibido el pago y el BDE haya verificado los documentos.",
+      "Des questions ?": "¿Tienes preguntas?",
+      "Comment se passe le transport ?": "¿Cómo se organiza el transporte?",
+      "Départ en bus depuis Villaviciosa de Odón le vendredi 25 septembre à 4h, direction Lloret de Mar. Retour le dimanche 27 septembre avec un départ de Lloret à 17h.": "Salida en autobús desde Villaviciosa de Odón el viernes 25 de septiembre a las 4:00 rumbo a Lloret de Mar. Regreso el domingo 27 de septiembre con salida de Lloret a las 17:00.",
+      "Où sommes-nous hébergés ?": "¿Dónde nos alojamos?",
+      "Le groupe sera hébergé au Boléro Hôtel à Lloret de Mar. L'hôtel dispose d'une piscine et les draps sont fournis.": "El grupo se alojará en el Hotel Boléro de Lloret de Mar. El hotel dispone de piscina y las sábanas están incluidas.",
+      "Les repas et les assurances sont-ils inclus ?": "¿Están incluidas las comidas y los seguros?",
+      "Non. La restauration et les assurances ne sont pas comprises dans le prix du séjour. Quatre assurances facultatives sont proposées : annulation (10 €), rapatriement + couverture vol/perte de bagages (10 €), tout inclus (19 €) et VIP (29 €), par personne et sur demande auprès du BDE jusqu'à 40 jours avant le départ.": "No. Las comidas y los seguros no están incluidos en el precio del viaje. Se ofrecen cuatro seguros opcionales: cancelación (10 €), repatriación + cobertura por robo/pérdida de equipaje (10 €), todo incluido (19 €) y VIP (29 €), por persona y previa solicitud al BDE hasta 40 días antes de la salida.",
+      "Quelle caution dois-je fournir ?": "¿Qué fianza debo aportar?",
+      "Chaque étudiant doit obligatoirement fournir une caution individuelle de 100 €.": "Cada estudiante deberá aportar obligatoriamente una fianza individual de 100 €.",
+      "Elle sera remise par chèque à l'arrivée du groupe ou déposée en ligne via Swikly avant le séjour. L'ordre du chèque et les modalités précises seront communiqués en amont.": "Se entregará mediante cheque a la llegada del grupo o se depositará en línea a través de Swikly antes del viaje. El beneficiario del cheque y los detalles se comunicarán con antelación.",
+      "Quels documents dois-je fournir ?": "¿Qué documentos debo aportar?",
+      "Après ton virement, envoie par mail le justificatif de virement, la décharge de responsabilité signée, une pièce d'identité valide et ton certificat de scolarité 2026-2027 à l'UEM.": "Después de realizar la transferencia, envía por correo electrónico el justificante de pago, la declaración de responsabilidad firmada, un documento de identidad válido y tu certificado de matrícula 2026-2027 en la UEM.",
+      "Puis-je annuler après mon inscription ?": "¿Puedo cancelar después de inscribirme?",
+      "Le BDE ne rembourse pas une place une fois qu'elle a été achetée. Si tu ne peux plus participer, tu peux cependant revendre ta place à un autre étudiant.": "El BDE no reembolsa una plaza una vez comprada. Si finalmente no puedes participar, podrás revenderla a otro estudiante.",
+      "Comment je sais que mon inscription est bien validée ?": "¿Cómo sé que mi inscripción está validada?",
+      "Le bureau vérifie ton virement et tes documents, puis te confirme ta place par mail. Aucune place n'est garantie tant que cette confirmation n'a pas été envoyée.": "El BDE comprobará tu transferencia y tus documentos y después confirmará tu plaza por correo electrónico. Ninguna plaza está garantizada hasta que se haya enviado esta confirmación.",
+      "Le WEI 2026 est organisé par le BDE VetEuropea, association étudiante des vétérinaires de l'Universidad Europea de Madrid (UEM).": "El WEI 2026 está organizado por el BDE VetEuropea, la asociación de estudiantes de Veterinaria de la Universidad Europea de Madrid (UEM).",
+      "Ce qui est inclus": "Qué está incluido",
+      "Cautions & assurances": "Fianzas y seguros",
+      "Tarifs & inscription": "Tarifas e inscripción",
+      "Contact": "Contacto",
+      "BDE VetEuropea — Tous droits réservés": "BDE VetEuropea — Todos los derechos reservados",
+      "Fait avec 🧡 pour la meilleure promo": "Hecho con 🧡 para la mejor promoción"
+    };
+
+    const esAttributes = {
+      "Choisir la langue": "Elegir idioma",
+      "Ouvrir le menu": "Abrir el menú",
+      "Copier l'IBAN": "Copiar el IBAN",
+      "Copier le BIC": "Copiar el BIC",
+      "Vue aérienne du Boléro Hôtel et de sa piscine à Lloret de Mar": "Vista aérea del Hotel Boléro y su piscina en Lloret de Mar",
+      "Intérieur d'un appartement du Boléro Hôtel à Lloret de Mar": "Interior de un apartamento del Hotel Boléro en Lloret de Mar",
+      "Vue aérienne d'une boat party sur la Costa Brava": "Vista aérea de una boat party en la Costa Brava",
+      "Ambiance en boîte de nuit à Lloret de Mar": "Ambiente de discoteca en Lloret de Mar"
+    };
+
+    const textOriginals = new WeakMap();
+    const attributeOriginals = new WeakMap();
+    const ignoredParents = new Set(['SCRIPT', 'STYLE', 'SVG', 'PATH']);
+
+    function applyLanguage(language, updateAddress = true) {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      let node;
+
+      while ((node = walker.nextNode())) {
+        const parent = node.parentElement;
+        if (!parent || ignoredParents.has(parent.tagName) || parent.closest('svg')) continue;
+
+        if (!textOriginals.has(node)) textOriginals.set(node, node.nodeValue);
+        const original = textOriginals.get(node);
+        const key = original.replace(/\s+/g, ' ').trim();
+        if (!key) continue;
+
+        if (language === 'fr') {
+          node.nodeValue = original;
+        } else if (es[key]) {
+          const leading = original.match(/^\s*/)?.[0] || '';
+          const trailing = original.match(/\s*$/)?.[0] || '';
+          node.nodeValue = `${leading}${es[key]}${trailing}`;
+        }
+      }
+
+      document.querySelectorAll('[aria-label], [alt], [title], [placeholder]').forEach(element => {
+        if (!attributeOriginals.has(element)) {
+          const originals = {};
+          ['aria-label', 'alt', 'title', 'placeholder'].forEach(attribute => {
+            if (element.hasAttribute(attribute)) originals[attribute] = element.getAttribute(attribute);
+          });
+          attributeOriginals.set(element, originals);
+        }
+
+        const originals = attributeOriginals.get(element);
+        Object.entries(originals).forEach(([attribute, value]) => {
+          element.setAttribute(attribute, language === 'es' && esAttributes[value] ? esAttributes[value] : value);
+        });
+      });
+
+      document.documentElement.lang = language;
+      document.title = language === 'es'
+        ? 'WEI 2026 — Lloret de Mar | BDE VetEuropea'
+        : 'WEI 2026 — Lloret de Mar | BDE VetEuropea';
+
+      const description = document.querySelector('meta[name="description"]');
+      if (description) {
+        description.content = language === 'es'
+          ? 'WEI 2026 del BDE VetEuropea: 3 días en Lloret de Mar, del 25 al 27 de septiembre de 2026. Autobús, hotel con piscina, dos entradas a discoteca y boat party con bebidas incluidas.'
+          : 'WEI 2026 du BDE VetEuropea : 3 jours à Lloret de Mar, du 25 au 27 septembre 2026. Bus, hôtel avec piscine, deux entrées en boîte et boat party avec boissons incluses.';
+      }
+
+      document.querySelectorAll('[data-language]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.language === language));
+      });
+
+      try {
+        localStorage.setItem('wei-language', language);
+      } catch (_) {}
+
+      if (updateAddress) {
+        const url = new URL(window.location.href);
+        if (language === 'es') url.searchParams.set('lang', 'es');
+        else url.searchParams.delete('lang');
+        history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+      }
+    }
+
+    document.querySelectorAll('[data-language]').forEach(button => {
+      button.addEventListener('click', () => applyLanguage(button.dataset.language));
+    });
+
+    const requestedLanguage = new URLSearchParams(window.location.search).get('lang');
+    let savedLanguage = null;
+    try {
+      savedLanguage = localStorage.getItem('wei-language');
+    } catch (_) {}
+
+    const initialLanguage = requestedLanguage === 'es' || requestedLanguage === 'fr'
+      ? requestedLanguage
+      : (savedLanguage === 'es' || savedLanguage === 'fr' ? savedLanguage : 'fr');
+
+    applyLanguage(initialLanguage, false);
+  })();
 </script>
 
 </body>
